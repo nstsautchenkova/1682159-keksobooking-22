@@ -15,7 +15,7 @@ function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 }
-alert(getRandomInteger(1, 6));
+getRandomInteger(1,9);
 
 // Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно
 /*
@@ -36,4 +36,4 @@ function getRandomDecimal(min, max, decimalDigits) {
     return (Math.random() * (max - min) + min).toFixed(decimalDigits);
   }
 }
-alert(getRandomDecimal(1, 9, 2));
+getRandomDecimal(1,5,2);
