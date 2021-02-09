@@ -123,5 +123,5 @@ const createDeclaration = () => {
 
 const ARRAY_DECLARATION_COUNT = 10;
 const arrayDeclarations = new Array(ARRAY_DECLARATION_COUNT).fill(null).map(() => createDeclaration());
-
-arrayDeclarations();
+arrayDeclarations;
+//console.log(arrayDeclarations);
