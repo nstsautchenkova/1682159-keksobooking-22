@@ -44,10 +44,11 @@ const getRandomDecimal = (min, max, decimalDigits) => {
 };
 getRandomDecimal(1, 5, 2);
 
-// Функция, возвращающая случайное число
+/* Функция, возвращающая случайное число
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
+*/
 
 // Функция, возвращающая случайный номер элемента массива
 const getRandomElNumber = (array) => {
@@ -79,7 +80,6 @@ const createDeclaration = () => {
   const nubmerImgAvatar = getRandomInteger(NUMBER_IMG_AVATAR_MIN, NUMBER_IMG_AVATAR_MAX);
   const locationX = getRandomDecimal(LOCATION_X_MIN, LOCATION_X_MAX, LOCATION_X_DECIMAL_DIGITS);
   const locationY = getRandomDecimal(LOCATION_Y_MIN, LOCATION_Y_MAX, LOCATION_Y_DECIMAL_DIGITS);
-
 
   return {
     avatar: 'img/avatars/user0' + nubmerImgAvatar + '.png',
