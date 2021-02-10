@@ -69,30 +69,49 @@ const createDeclaration = () => {
   const locationX = getRandomDecimal(LOCATION_X_MIN, LOCATION_X_MAX, LOCATION_X_DECIMAL_DIGITS);
   const locationY = getRandomDecimal(LOCATION_Y_MIN, LOCATION_Y_MAX, LOCATION_Y_DECIMAL_DIGITS);
 
+
+  // Author
+  const createAuthor = () => {
+    return {
+      avatars: 'img/avatars/user0' + nubmerImgAvatar + '.png',
+    };
+  };
+
+  // Offer
+  const createOffer = () => {
+    return {
+      title: TITLE,
+      address: `${locationX}, ${locationY}`,
+      price: getRandomInteger(1, PRICE_MAX),
+      type: getRandomEl(TYPES),
+      rooms: getRandomInteger(1, ROOMS_MAX),
+      guests: getRandomInteger(1, QUESTS_MAX),
+      checkin: getRandomEl(CHECKINS),
+      checkout: getRandomEl(CHECKOUTS),
+      features: getRandomArray(FEATURES),
+      description: DESCRIPTION,
+      photos: getRandomArray(PHOTOS),
+    };
+  };
+
+  // Location
+  const createLocation = () => {
+    return {
+      location: `${locationX}, ${locationY}`,
+    }
+  };
+
   return {
-    avatar: 'img/avatars/user0' + nubmerImgAvatar + '.png',
-    title: TITLE,
-    address: `${locationX}, ${locationY}`,
-    price: getRandomInteger(1, PRICE_MAX),
-    type: getRandomEl(TYPES),
-    rooms: getRandomInteger(1, ROOMS_MAX),
-    guests: getRandomInteger(1, QUESTS_MAX),
-    checkin: getRandomEl(CHECKINS),
-    checkout: getRandomEl(CHECKOUTS),
-    features: getRandomArray(FEATURES),
-    description: DESCRIPTION,
-    photos: getRandomArray(PHOTOS),
-    locationX,
-    locationY,
+    author: createAuthor(),
+    offer: createOffer(),
+    location: createLocation(),
   };
 };
 
 // Функция, возвращающая массив длинной arrayCout, каждый элемент = createDeclaration
 const createArrayDeclarations = (arrayCount) => {
   const arrayDeclarations = new Array(arrayCount).fill(null).map(() => createDeclaration());
-  return {
-    arrayDeclarations,
-  };
+  return arrayDeclarations
 };
 
 createArrayDeclarations(ARRAY_DECLARATION_COUNT);
