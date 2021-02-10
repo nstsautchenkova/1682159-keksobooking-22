@@ -1,6 +1,5 @@
 // Функция, возвращающая случайное число из переданного диапазона включительно min ... max
-
-function getRandomInteger(min, max) {
+const getRandomInteger = (min, max) => {
   if ((min < 0) || (max < 0)) {
     return new Error('Диапазон может быть больше или равен нулю')
   } else if (min >= max) {
@@ -8,12 +7,12 @@ function getRandomInteger(min, max) {
   } else {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-}
+};
 getRandomInteger(1, 9);
 
-// Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно
 
-function getRandomDecimal(min, max, decimalDigits) {
+// Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно
+const getRandomDecimal = (min, max, decimalDigits) => {
   if ((min < 0) || (max < 0)) {
     return new Error('Диапазон может быть больше или равен нулю');
   } else if (decimalDigits < 0) {
@@ -23,105 +22,96 @@ function getRandomDecimal(min, max, decimalDigits) {
   } else {
     return (Math.random() * (max - min) + min).toFixed(decimalDigits);
   }
-}
+};
 getRandomDecimal(1, 5, 2);
 
+// Функция, возвращающая случайное число
+const getRandomInt = (max) => {
+  return Math.floor(Math.random() * Math.floor(max));
+};
+
+// Функция, возвращающая случайный номер элемента массива
+const getRandomElNumber = (array) => {
+  const numberArray = getRandomInteger(0, array.length - 1);
+  return numberArray;
+};
+
+// Функция, возвращающая случайный элемент массива
+const getRandomEl = (array) => {
+  const numberArray = getRandomElNumber(array);
+  const elArray = array[numberArray];
+  return elArray;
+};
+
+// Функция, возвращающая массив из случайных элементов заданного массива
+const getRandomArray = (array) => {
+  const numberArray = getRandomElNumber(array);
+  const randomArray = [];
+  for (let i = 0, l = numberArray; i < l; i++) {
+    const arrayEl = getRandomInteger(0, array.length - 1);
+    if (!randomArray.includes(array[arrayEl])) {
+      randomArray.push(array[arrayEl]);
+    }
+  }
+  return randomArray;
+};
 
 // -- module3-task1 --
+
+const numberImgAvatar = getRandomInteger(1, 8);
+const locationX_min = 35.65000;
+const locationX_max = 35.70000;
+const locationX_decimalDigits = 5;
+const locationY_min = 139.70000;
+const locationY_max = 139.80000;
+const locationY_decimalDigits = 5;
+const titleTxt = 'Информацию об объявлении';
+const price_max = getRandomInt(7);
+const rooms_max = getRandomInt(9);
+const guests_max = getRandomInt(12);
+const types = ['palace', 'flat', 'house', 'bungalow'];
+const checkins = ['12:00', '13:00', '14:00'];
+const checkouts = ['2:00', '13:00', '14:00'];
+const arrayFeatures = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
+const descriptionTxt = 'Помещение большое, светлое, просторное. В нем трое больших окон. Справа от дверей стоят книжные шкафы. Их пять, и каждая заполнена книгами, журналами, газетами.';
+const arrayPhotos = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg', 'http://o0.github.io/assets/images/tokyo/hotel2.jpg', 'http://o0.github.io/assets/images/tokyo/hotel3.jpg'];
+
+// Функция, по герерации массива из рандомных элементов (констант и готовых функций)
 const createDeclaration = () => {
-
-  const numberImgAvatar = getRandomInteger(1, 8);
   const avatar = 'img/avatars/user0' + numberImgAvatar + '.png';
-
-  const locationX = getRandomDecimal(35.65000, 35.70000, 5);
-  const locationY = getRandomDecimal(139.70000, 139.80000, 5);
-
-  const title = 'Информацию об объявлении';
-  const address = 'Адрес: ' + locationX + ', ' + locationY;
-
-  const numberPrice = 4;
-  const price = Math.abs(numberPrice);
-
-  const types = ['palace', 'flat', 'house', 'bungalow'];
-  const typeNumber = getRandomInteger(0, types.length - 1);
-  const type = types[typeNumber];
-
-  const numberRooms = 7;
-  const rooms = Math.abs(numberRooms);
-
-  const numberQuests = 9;
-  const guests = Math.abs(numberQuests);
-
-  const checkins = ['12:00', '13:00', '14:00'];
-  const checkinNumber = getRandomInteger(0, checkins.length - 1);
-  const checkin = checkins[checkinNumber];
-
-  const checkouts = ['2:00', '13:00', '14:00'];
-  const checkoutNumber = getRandomInteger(0, checkouts.length - 1);
-  const checkout = checkouts[checkoutNumber];
-
-  const arrayFeatures = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
-  const featureNumber = getRandomInteger(0, arrayFeatures.length - 1);
-  const features = [];
-  for (let i = 0, l = featureNumber; i < l; i++) {
-    const arrayFeaturesTitle = getRandomInteger(0, arrayFeatures.length - 1);
-    if (!features.includes(arrayFeatures[arrayFeaturesTitle])) {
-      features.push(arrayFeatures[arrayFeaturesTitle]);
-    }
-  }
-
-  const description = 'Помещение большое, светлое, просторное. В нем трое больших окон. Справа от дверей стоят книжные шкафы. Их пять, и каждая заполнена книгами, журналами, газетами.';
-
-  const arrayPhotos = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg', 'http://o0.github.io/assets/images/tokyo/hotel2.jpg', 'http://o0.github.io/assets/images/tokyo/hotel3.jpg'];
-  const photosNumber = getRandomInteger(0, arrayPhotos.length - 1);
-  const photos = [];
-  for (let i = 0, l = photosNumber; i < l; i++) {
-    const arrayPhotosTitle = getRandomInteger(0, arrayPhotos.length - 1);
-    if (!photos.includes(arrayPhotos[arrayPhotosTitle])) {
-      photos.push(arrayPhotos[arrayPhotosTitle]);
-    }
-  }
-
-  // Author
-  const createAuthor = () => {
-    return {
-      avatar,
-    };
-  };
-
-  // Offer
-  const createOffer = () => {
-    return {
-      title,
-      address,
-      price,
-      type,
-      rooms,
-      guests,
-      checkin,
-      checkout,
-      features,
-      description,
-      photos,
-    };
-  };
-
-  // Location
-  const createLocation = () => {
-    return {
-      locationX,
-      locationY,
-    };
-  };
+  const locationX = getRandomDecimal(locationX_min, locationX_max, locationX_decimalDigits);
+  const locationY = getRandomDecimal(locationY_min, locationY_max, locationY_decimalDigits);
+  const title = titleTxt;
+  const address = `${locationX}, ${locationY}`;
+  const price = getRandomInteger(1, price_max);
+  const rooms = getRandomInteger(1, rooms_max);
+  const guests = getRandomInteger(1, guests_max);
+  const type = getRandomEl(types);
+  const checkin = getRandomEl(checkins);
+  const checkout = getRandomEl(checkouts);
+  const features = getRandomArray(arrayFeatures);
+  const description = descriptionTxt;
+  const photos = getRandomArray(arrayPhotos);
 
   return {
-    author: createAuthor(),
-    offer: createOffer(),
-    location: createLocation(),
+    avatar,
+    title,
+    address,
+    price,
+    type,
+    rooms,
+    guests,
+    checkin,
+    checkout,
+    features,
+    description,
+    photos,
+    locationX,
+    locationY,
   };
 };
 
-
+// Функция, возвращающая массив длинной ARRAY_DECLARATION_COUNT, каждый элемент = createDeclaration
 const createArrayDeclarations = (ARRAY_DECLARATION_COUNT) => {
   const arrayDeclarations = new Array(ARRAY_DECLARATION_COUNT).fill(null).map(() => createDeclaration());
   return {
