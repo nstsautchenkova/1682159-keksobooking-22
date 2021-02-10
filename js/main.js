@@ -111,9 +111,9 @@ const createDeclaration = () => {
   };
 };
 
-// Функция, возвращающая массив длинной ARRAY_DECLARATION_COUNT, каждый элемент = createDeclaration
-const createArrayDeclarations = (ARRAY_DECLARATION_COUNT) => {
-  const arrayDeclarations = new Array(ARRAY_DECLARATION_COUNT).fill(null).map(() => createDeclaration());
+// Функция, возвращающая массив длинной arrayCout, каждый элемент = createDeclaration
+const createArrayDeclarations = (arrayCout) => {
+  const arrayDeclarations = new Array(arrayCout).fill(null).map(() => createDeclaration());
   return {
     arrayDeclarations,
   };
