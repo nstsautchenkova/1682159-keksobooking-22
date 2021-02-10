@@ -121,8 +121,6 @@ const createDeclaration = () => {
   };
 };
 
-//const ARRAY_DECLARATION_COUNT = 2;
-//const arrayDeclarations = new Array(ARRAY_DECLARATION_COUNT).fill(null).map(() => createDeclaration());
 
 const createArrayDeclarations = (ARRAY_DECLARATION_COUNT) => {
   const arrayDeclarations = new Array(ARRAY_DECLARATION_COUNT).fill(null).map(() => createDeclaration());
