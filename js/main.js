@@ -69,17 +69,11 @@ const createDeclaration = () => {
   const locationX = getRandomDecimal(LOCATION_X_MIN, LOCATION_X_MAX, LOCATION_X_DECIMAL_DIGITS);
   const locationY = getRandomDecimal(LOCATION_Y_MIN, LOCATION_Y_MAX, LOCATION_Y_DECIMAL_DIGITS);
 
-
-  // Author
-  const createAuthor = () => {
-    return {
-      avatars: 'img/avatars/user0' + nubmerImgAvatar + '.png',
-    };
-  };
-
-  // Offer
-  const createOffer = () => {
-    return {
+  return {
+    author: {
+      avatar: 'img/avatars/user0' + nubmerImgAvatar + '.png',
+    },
+    offer: {
       title: TITLE,
       address: `${locationX}, ${locationY}`,
       price: getRandomInteger(1, PRICE_MAX),
@@ -91,21 +85,13 @@ const createDeclaration = () => {
       features: getRandomArray(FEATURES),
       description: DESCRIPTION,
       photos: getRandomArray(PHOTOS),
-    };
+    },
+    location: {
+      x: locationX,
+      y: locationY,
+    },
   };
 
-  // Location
-  const createLocation = () => {
-    return {
-      location: `${locationX}, ${locationY}`,
-    }
-  };
-
-  return {
-    author: createAuthor(),
-    offer: createOffer(),
-    location: createLocation(),
-  };
 };
 
 // Функция, возвращающая массив длинной arrayCout, каждый элемент = createDeclaration
