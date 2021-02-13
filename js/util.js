@@ -1,42 +1,47 @@
-import {NUMBER_IMG_AVATAR_MIN, NUMBER_IMG_AVATAR_MAX, LOCATION_X_MIN, LOCATION_X_MAX, LOCATION_X_DECIMAL_DIGITS, LOCATION_Y_MIN, LOCATION_Y_MAX, LOCATION_Y_DECIMAL_DIGITS, TITLE, PRICE_MAX, ROOMS_MAX, QUESTS_MAX, TYPES, CHECKINS, CHECKOUTS, FEATURES, DESCRIPTION, PHOTOS, ARRAY_DECLARATION_COUNT} from './data.js';
-import {getRandomInteger, getRandomDecimal, getRandomEl, getRandomArray} from './get-random.js';
-
-// Функция, по герерации массива из рандомных элементов (констант и готовых функций)
-const createDeclaration = () => {
-  const nubmerImgAvatar = getRandomInteger(NUMBER_IMG_AVATAR_MIN, NUMBER_IMG_AVATAR_MAX);
-  const locationX = getRandomDecimal(LOCATION_X_MIN, LOCATION_X_MAX, LOCATION_X_DECIMAL_DIGITS);
-  const locationY = getRandomDecimal(LOCATION_Y_MIN, LOCATION_Y_MAX, LOCATION_Y_DECIMAL_DIGITS);
-
-  return {
-    author: {
-      avatar: 'img/avatars/user0' + nubmerImgAvatar + '.png',
-    },
-    offer: {
-      title: TITLE,
-      address: `${locationX}, ${locationY}`,
-      price: getRandomInteger(1, PRICE_MAX),
-      type: getRandomEl(TYPES),
-      rooms: getRandomInteger(1, ROOMS_MAX),
-      guests: getRandomInteger(1, QUESTS_MAX),
-      checkin: getRandomEl(CHECKINS),
-      checkout: getRandomEl(CHECKOUTS),
-      features: getRandomArray(FEATURES),
-      description: DESCRIPTION,
-      photos: getRandomArray(PHOTOS),
-    },
-    location: {
-      x: locationX,
-      y: locationY,
-    },
-  };
-
+// Функция, возвращающая случайное число из переданного диапазона включительно min ... max
+const getRandomInteger = (min, max) => {
+  if ((min < 0) || (max < 0)) {
+    return new Error('Диапазон может быть больше или равен нулю')
+  } else if (min >= max) {
+    return new Error('Начальное значение диапазона не должно быть больше или равным конечному');
+  } else {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 };
+//getRandomInteger(1, 9);
+export {getRandomInteger};
 
-// Функция, возвращающая массив длинной arrayCout, каждый элемент = createDeclaration
-const createArrayDeclarations = (arrayCount) => {
-  const arrayDeclarations = new Array(arrayCount).fill(null).map(() => createDeclaration());
-  return arrayDeclarations
+// Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно
+const getRandomDecimal = (min, max, decimalDigits) => {
+  if ((min < 0) || (max < 0)) {
+    return new Error('Диапазон может быть больше или равен нулю');
+  } else if (decimalDigits < 0) {
+    return new Error('Колличесво чисел после запятой может быть больше или равен нулю');
+  } else if (min >= max) {
+    return new Error('Начальное значение диапазона не должно быть больше или равным конечному');
+  } else {
+    return (Math.random() * (max - min) + min).toFixed(decimalDigits);
+  }
 };
+//getRandomDecimal(1, 5, 2);
+export {getRandomDecimal};
 
-createArrayDeclarations(ARRAY_DECLARATION_COUNT);
-export {createArrayDeclarations};
+// Функция, возвращающая случайный элемент массива
+const getRandomEl = (array) => {
+  return array[getRandomInteger(0, array.length - 1)];
+};
+export {getRandomEl};
+
+// Функция, возвращающая массив из случайных элементов заданного массива
+const getRandomArray = (array) => {
+  const numberArray = getRandomInteger(0, array.length - 1);
+  const randomArray = [];
+  for (let i = 0, l = numberArray; i < l; i++) {
+    const arrayEl = getRandomInteger(0, array.length - 1);
+    if (!randomArray.includes(array[arrayEl])) {
+      randomArray.push(array[arrayEl]);
+    }
+  }
+  return randomArray;
+};
+export {getRandomArray};
