@@ -9,7 +9,7 @@ const getRandomInteger = (min, max) => {
   }
 };
 //getRandomInteger(1, 9);
-export {getRandomInteger};
+
 
 // Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно
 const getRandomDecimal = (min, max, decimalDigits) => {
@@ -24,13 +24,13 @@ const getRandomDecimal = (min, max, decimalDigits) => {
   }
 };
 //getRandomDecimal(1, 5, 2);
-export {getRandomDecimal};
+
 
 // Функция, возвращающая случайный элемент массива
 const getRandomEl = (array) => {
   return array[getRandomInteger(0, array.length - 1)];
 };
-export {getRandomEl};
+
 
 // Функция, возвращающая массив из случайных элементов заданного массива
 const getRandomArray = (array) => {
@@ -44,4 +44,8 @@ const getRandomArray = (array) => {
   }
   return randomArray;
 };
+
+export {getRandomInteger};
+export {getRandomDecimal};
+export {getRandomEl};
 export {getRandomArray};
