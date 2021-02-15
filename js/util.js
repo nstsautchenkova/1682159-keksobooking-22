@@ -45,7 +45,4 @@ const getRandomArray = (array) => {
   return randomArray;
 };
 
-export {getRandomInteger};
-export {getRandomDecimal};
-export {getRandomEl};
-export {getRandomArray};
+export {getRandomInteger, getRandomDecimal, getRandomEl, getRandomArray};

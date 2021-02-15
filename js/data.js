@@ -1,4 +1,3 @@
-import './util.js';
 import {getRandomInteger, getRandomDecimal, getRandomEl, getRandomArray} from './util.js';
 
 const NUMBER_IMG_AVATAR_MIN = 1;
@@ -59,6 +58,6 @@ const createArrayDeclarations = (arrayCount) => {
 };
 
 
-const ArrayDeclarations = createArrayDeclarations(ARRAY_DECLARATION_COUNT);
-export {ArrayDeclarations};
+const arrayDeclarations = createArrayDeclarations(ARRAY_DECLARATION_COUNT);
+export {arrayDeclarations};
 
