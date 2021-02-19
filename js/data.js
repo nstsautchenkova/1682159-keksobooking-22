@@ -50,7 +50,6 @@ const createDeclaration = () => {
       y: locationY,
     },
   };
-
 };
 
 // Функция, возвращающая массив длинной arrayCout, каждый элемент = createDeclaration
@@ -78,5 +77,5 @@ const getOfferType = (TYPES) => {
 const offerType = getOfferType(TYPES[OFFER_TYPE]);
 
 const declarations = createArrayDeclarations(ARRAY_DECLARATION_COUNT);
-export { declarations, offerType };
+export { declarations, offerType, getOfferType};
 
