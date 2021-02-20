@@ -47,21 +47,21 @@ const renderCardElement = ({ author, offer }) => {
   } else {
     cardElement.querySelector('.popup__description').classList.add('hidden');
   }
-  if (offer.features) {
+  if ((offer.features).length > 0) {
     // создать li.popup__feature c class popup__feature--  в popup__features
     cardElement.querySelector('.popup__features').textContent = ' ';
     const featuresList = cardElement.querySelector('.popup__features');
-    for (let i = 0; i < offer.features.length; i++) {
+    offer.features.forEach((element) => {
       const featuresItem = document.createElement('li');
       featuresItem.classList.add('popup__feature');
-      const featuresClass = `popup__feature--${offer.features[i]}`;
+      const featuresClass = `popup__feature--${element}`;
       featuresItem.classList.add(featuresClass);
       featuresList.append(featuresItem);
-    }
+    });
   } else {
     cardElement.querySelector('.popup__features').classList.add('hidden');
   }
-  if (offer.photos) {
+  if ((offer.photos).length > 0) {
     // создать img.popup__photo в popup__photos
     cardElement.querySelector('.popup__photos').textContent = ' ';
     const photoList = cardElement.querySelector('.popup__photos');
