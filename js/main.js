@@ -1,5 +1,5 @@
 import {declarations} from './data.js';
-import {createCardElement} from './card.js';
+import {renderCardElement} from './card.js';
 
-const [firstItem] = declarations;
-createCardElement(firstItem);
+const [declarationsFirstItem] = declarations;
+renderCardElement(declarationsFirstItem);
