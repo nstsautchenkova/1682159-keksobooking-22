@@ -1026,3 +1026,16 @@ fieldset {
 .hidden {
   display: none;
 }
+
+
+/* временный стили */
+.map__canvas{
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+}
+.popup{
+  border: 1px solid #fff;
+  padding: 20px;
+  margin: 20px;
+}

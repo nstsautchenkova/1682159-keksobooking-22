@@ -45,4 +45,20 @@ const getRandomArray = (array) => {
   return randomArray;
 };
 
-export {getRandomInteger, getRandomDecimal, getRandomEl, getRandomArray};
+// Функция, возвращающая тип жилья
+const getOfferType = (types) => {
+  switch (types) {
+    case 'flat':
+      return 'Квартира';
+    case 'bungalow':
+      return 'Бунгало';
+    case 'house':
+      return 'Дом';
+    case 'palace':
+      return 'Дворец';
+    default:
+      return 'Любой тип жилья';
+  }
+};
+
+export {getRandomInteger, getRandomDecimal, getRandomEl, getRandomArray, getOfferType};

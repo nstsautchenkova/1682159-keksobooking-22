@@ -1,4 +1,4 @@
-import {getRandomInteger, getRandomDecimal, getRandomEl, getRandomArray} from './util.js';
+import { getRandomInteger, getRandomDecimal, getRandomEl, getRandomArray } from './util.js';
 
 const NUMBER_IMG_AVATAR_MIN = 1;
 const NUMBER_IMG_AVATAR_MAX = 8;
@@ -19,6 +19,7 @@ const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'condit
 const DESCRIPTION = 'Помещение большое, светлое, просторное. В нем трое больших окон. Справа от дверей стоят книжные шкафы. Их пять, и каждая заполнена книгами, журналами, газетами.';
 const PHOTOS = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg', 'http://o0.github.io/assets/images/tokyo/hotel2.jpg', 'http://o0.github.io/assets/images/tokyo/hotel3.jpg'];
 const ARRAY_DECLARATION_COUNT = 10;
+
 
 // Функция, по герерации массива из рандомных элементов (констант и готовых функций)
 const createDeclaration = () => {
@@ -48,7 +49,6 @@ const createDeclaration = () => {
       y: locationY,
     },
   };
-
 };
 
 // Функция, возвращающая массив длинной arrayCout, каждый элемент = createDeclaration
@@ -58,6 +58,6 @@ const createArrayDeclarations = (arrayCount) => {
 };
 
 
-const arrayDeclarations = createArrayDeclarations(ARRAY_DECLARATION_COUNT);
-export {arrayDeclarations};
+const declarations = createArrayDeclarations(ARRAY_DECLARATION_COUNT);
+export { declarations};
 
