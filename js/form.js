@@ -18,23 +18,23 @@ const getPriceMinValue = (typeSelectValue) => {
 };
 
 const getPriceMin = () => {
-  typeSelect.addEventListener('change', (event) => {
+  typeSelect.addEventListener('change', () => {
     const priceMin = getPriceMinValue(typeSelect.value);
 
     const price = getRandomInteger(priceMin, 15000);
-    document.getElementById("price").placeholder = price;
+    document.getElementById('price').placeholder = price;
   });
 };
 
 let timeIn = document.querySelector('#timein');
 let timeInOption = document.querySelector('#timein option');
-let timeInValue = timeIn.value;
+let timeInValue = timeInOption.value;
 let timeOut = document.querySelector('#timeout');
 let timeOutOption = document.querySelector('#timeout option');
 let timeOutValue = timeOutOption.value;
 
 const getTimeIn = () => {
-  timeIn.addEventListener('change', (event) => {
+  timeIn.addEventListener('change', () => {
     timeInValue = timeIn.value;
     for (let i = 0; i < timeOut.length; i++) {
       if (timeOut[i].value === timeInValue) timeOut[i].selected = true;
@@ -43,7 +43,7 @@ const getTimeIn = () => {
 };
 
 const getTimeOut = () => {
-  timeOut.addEventListener('change', (event) => {
+  timeOut.addEventListener('change', () => {
     timeOutValue = timeOut.value;
     for (let i = 0; i < timeIn.length; i++) {
       if (timeIn[i].value === timeOutValue) timeIn[i].selected = true;
