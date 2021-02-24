@@ -53,3 +53,5 @@ const getTimeOut = () => {
 export { getPriceMin, getTimeIn, getTimeOut };
 
 
+
+
