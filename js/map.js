@@ -1,14 +1,14 @@
 import { declarations } from './data.js';
 import { renderCardElement } from './card.js';
-import { pageInactiveState, pageActiveState } from './checkDocumentLoader.js';
+import { pageInactiveState, pageActiveState } from './form.js';
 
 
+pageInactiveState();
 let L = window.L;
 const createMap = () => {
-  pageInactiveState();
   const map = L.map('map-canvas')
     .on('load', () => {
-      pageActiveState()
+      pageActiveState();
     })
     .setView({
       lat: 35.6895000,
@@ -74,6 +74,7 @@ const createMap = () => {
         renderCardElement(element),
       );
   });
+
 };
 
 export { createMap };
