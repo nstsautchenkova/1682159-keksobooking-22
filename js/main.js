@@ -1,5 +1,7 @@
-import {declarations} from './data.js';
-import {renderCardElement} from './card.js';
+import { createMap } from './map.js';
+import './form.js';
 
-const [declarationsFirstItem] = declarations;
-renderCardElement(declarationsFirstItem);
+createMap();
+
+
+

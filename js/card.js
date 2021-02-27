@@ -1,8 +1,8 @@
 import { getOfferType } from './util.js';
 
-const cardListElement = document.querySelector('.map__canvas');
+//const cardListElement = document.querySelector('.cardDeclarations');
 const cardTemplate = document.querySelector('#card').content.querySelector('.popup');
-const declarationsFragment = document.createDocumentFragment();
+//const declarationsFragment = document.createDocumentFragment();
 
 
 //const renderCardElement = ({author, offer, location}) => {
@@ -13,7 +13,7 @@ const renderCardElement = ({ author, offer }) => {
 
   // наполняем данными
   if (author.avatar) {
-    cardElement.querySelector('.popup__avatar').textContent = author.avatar;
+    cardElement.querySelector('.popup__avatar').src = author.avatar;
   } else {
     cardElement.querySelector('.popup__avatar').classList.add('hidden');
   }
@@ -78,8 +78,9 @@ const renderCardElement = ({ author, offer }) => {
 
 
   //вывод
-  declarationsFragment.appendChild(cardElement);
-  return cardListElement.appendChild(declarationsFragment);
+  //declarationsFragment.appendChild(cardElement);
+  // return cardListElement.appendChild(declarationsFragment);
+  return cardElement;
 };
 
 export { renderCardElement };
