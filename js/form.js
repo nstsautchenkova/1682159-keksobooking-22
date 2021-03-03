@@ -1,3 +1,6 @@
+import { successModal, errorModal } from './modal.js';
+import { sendData } from './api.js';
+
 // Функция добавления disabled элементам
 const addElementDisabled = (formElements) => {
   formElements.forEach(element => {
@@ -53,7 +56,8 @@ const getPriceMinValue = (typeSelectValue) => {
 
 typeSelect.addEventListener('change', () => {
   const priceMin = getPriceMinValue(typeSelect.value);
-  document.getElementById('price').placeholder = priceMin;
+  document.querySelector('#price').placeholder = priceMin;
+  document.querySelector('#price').min = priceMin;
 });
 
 
@@ -147,6 +151,52 @@ priceInput.addEventListener('input', () => {
 });
 
 
-export { pageInactiveState, pageActiveState };
+// Отправка формы
+
+const typeDefault = document.querySelector('#type').value;
+const priceDefault = document.querySelector('#price').placeholder;
+const timeInDefault = document.querySelector('#timein').value;
+const timeOutDefault = document.querySelector('#timeout').value;
+const roomDefault = document.querySelector('#room_number').value;
+const capacityDefault = document.querySelector('#capacity').value;
+const featureCheckbox = document.querySelectorAll('.feature__checkbox');
+const descriptionDefault = document.querySelector('#description').value;
+
+const onFormSuccess = () => {
+  document.querySelector('#title').value = '';
+  document.querySelector('#address').value = '35.6895000, 139.6917100';
+  document.querySelector('#type').value = typeDefault;
+  document.querySelector('#price').placeholder = priceDefault;
+  document.querySelector('#price').min = priceDefault;
+  document.querySelector('#price').value = '';
+  document.querySelector('#timein').value = timeInDefault;
+  document.querySelector('#timeout').value = timeOutDefault;
+  document.querySelector('#room_number').value = roomDefault;
+  document.querySelector('#capacity').value = capacityDefault;
+  featureCheckbox.forEach(element => {
+    element.checked = false;
+  });
+  document.querySelector('#description').value = descriptionDefault;
+  successModal();
+};
+
+const onError = () => {
+  errorModal();
+};
+
+
+const setUserFormSubmit = (onSuccess) => {
+  adForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+
+    sendData(
+      onSuccess,
+      onError,
+      new FormData(evt.target),
+    );
+  });
+};
+
+export { pageInactiveState, pageActiveState, setUserFormSubmit, onFormSuccess };
 
 

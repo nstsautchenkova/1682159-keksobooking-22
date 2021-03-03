@@ -641,3 +641,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .ad-form--disabled {
   pointer-events: none
 }
+.success, .error{
+  z-index: 9999999;
+}
