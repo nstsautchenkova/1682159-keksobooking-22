@@ -3,10 +3,9 @@ import './form.js';
 import { setUserFormSubmit, onFormSuccess } from './form.js';
 import {getData} from './api.js';
 
-const DECLARATION_COUNT = 10;
 
 getData((declarations) => {
-  createMap(declarations.slice(0, DECLARATION_COUNT));
+  createMap(declarations);
 });
 
 setUserFormSubmit(onFormSuccess);
